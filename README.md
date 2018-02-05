@@ -18,6 +18,12 @@ Or install it yourself as:
 
 ## Usage
 
+If using IRB, require the library first.
+
+```ruby
+require 'train/tax/calculator'
+```
+
 Get SSS contribution
 ```ruby
 Train::Tax::Calculator.for_sss(15_000) # base salary
