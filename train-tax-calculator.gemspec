@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = %q{TRAIN Tax Calculator for PH 2018}
   spec.description   = %q{Computes withholding tax}
-  spec.homepage      = "http://localhost"
+  spec.homepage      = "https://markjoelchavez.com"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
   # to allow pushing to a single host or delete this section to allow pushing to any host.
