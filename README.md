@@ -32,17 +32,17 @@ require 'train/tax/calculator'
 
 Get SSS contribution
 ```ruby
-Train::Tax::Calculator.for_sss(15_000) # base salary
+Train::Tax::Calculator.for_sss(15_000) # basic salary
 ```
 
 Get Pagibig contribution
 ```ruby
-Train::Tax::Calculator.for_pagibig(15_000) # base salary
+Train::Tax::Calculator.for_pagibig(15_000) # basic salary
 ```
 
 Get Philhealth contribution
 ```ruby
-Train::Tax::Calculator.for_philhealth(15_000) # base salary
+Train::Tax::Calculator.for_philhealth(15_000) # basic salary
 ```
 
 ## Development
