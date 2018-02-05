@@ -1,9 +1,5 @@
 RSpec.describe Train::Tax::Calculator do
-  it "has a version number" do
-    expect(Train::Tax::Calculator::VERSION).not_to be nil
-  end
-
-  it "does something useful" do
-    expect(false).to eq(true)
+  it "returns 3_000" do
+    expect(Train::Tax::Calculator.monthly(5_000)).to eq 3_000
   end
 end
