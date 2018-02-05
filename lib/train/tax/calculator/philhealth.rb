@@ -2,6 +2,7 @@
 module Train::Tax::Calculator
   module Philhealth
 
+    # 2.75%
     MULTIPLIER = 0.0275
 
     def self.compute(salary)
