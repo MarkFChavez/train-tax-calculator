@@ -32,7 +32,13 @@ require 'train/tax/calculator'
 
 Get SSS contribution
 ```ruby
-Train::Tax::Calculator.for_sss(15_000) # where 15_000 is the basic salary
+sss = Train::Tax::Calculator.for_sss(15_000) # where 15_000 is the basic salary
+
+# employee share
+sss[:es]
+
+# employer share
+sss[:er]
 ```
 
 Get Pagibig contribution
