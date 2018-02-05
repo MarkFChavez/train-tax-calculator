@@ -1,6 +1,7 @@
 require "train/tax/calculator/version"
 require "train/tax/calculator/philhealth"
 require "train/tax/calculator/pagibig"
+require "train/tax/calculator/sss"
 
 module Train
   module Tax
