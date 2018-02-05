@@ -16,6 +16,12 @@ Or install it yourself as:
 
     $ gem install train-tax-calculator
 
+## References
+
+SSS [https://philpad.com/new-sss-contribution-table/](https://philpad.com/new-sss-contribution-table/)
+Philhealth [https://www.philhealth.gov.ph/circulars/2017/circ2017-0024.pdf](https://www.philhealth.gov.ph/circulars/2017/circ2017-0024.pdf)
+Pagibig [https://philpad.com/pagibig-contribution-table/](https://philpad.com/pagibig-contribution-table/)
+
 ## Usage
 
 If using IRB, require the library first.
