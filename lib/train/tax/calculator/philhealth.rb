@@ -9,11 +9,11 @@ module Train::Tax::Calculator
 
         137.50
 
-      elsif salary > 10_000.00 && salary <= 39_999.99
+      elsif salary <= 39_999.99
 
         ((salary * MULTIPLIER) / 2).round(2)
 
-      elsif salary >= 40_000
+      else
 
         550.00
 
