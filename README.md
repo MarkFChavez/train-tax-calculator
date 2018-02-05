@@ -18,7 +18,20 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Get SSS contribution
+```ruby
+Train::Tax::Calculator.for_sss(15_000) # base salary
+```
+
+Get Pagibig contribution
+```ruby
+Train::Tax::Calculator.for_pagibig(15_000) # base salary
+```
+
+Get Philhealth contribution
+```ruby
+Train::Tax::Calculator.for_philhealth(15_000) # base salary
+```
 
 ## Development
 

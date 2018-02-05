@@ -19,6 +19,14 @@ module Train
         Sss.compute(salary_base)
       end
 
+      def self.for_sss_es(salary_base)
+        Sss.compute_employee_share(salary_base)
+      end
+
+      def self.for_sss_er(salary_base)
+        Sss.compute_employer_share(salary_base)
+      end
+
     end
   end
 end
