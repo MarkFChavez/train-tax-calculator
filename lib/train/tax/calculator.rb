@@ -7,11 +7,6 @@ module Train
   module Tax
     module Calculator
 
-      def self.net_taxable_income(salary_base)
-        deductions = for_philhealth(salary_base) + for_pagibig(salary_base) + for_sss_es(salary_base)
-        (salary_base - deductions).round(2)
-      end
-
       def self.for_philhealth(salary_base)
         Philhealth.compute(salary_base)
       end
