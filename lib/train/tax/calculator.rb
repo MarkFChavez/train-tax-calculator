@@ -7,19 +7,17 @@ module Train
   module Tax
     module Calculator
 
-      class << self
-        def call(basic_salary)
-          hash = Hash.new
+      def self.call(basic_salary)
+        hash = Hash.new
 
-          hash[:sss] = for_sss_es(basic_salary)
-          hash[:philhealth] = for_philhealth(basic_salary)
-          hash[:pagibig] = for_pagibig(basic_salary)
-          hash[:total_deductions] = hash[:sss] + hash[:philhealth] + hash[:pagibig]
-          hash[:withholding_tax] = withholding_tax(basic_salary)
-          hash[:net_income] = net_income(basic_salary)
+        hash[:sss] = for_sss_es(basic_salary)
+        hash[:philhealth] = for_philhealth(basic_salary)
+        hash[:pagibig] = for_pagibig(basic_salary)
+        hash[:total_deductions] = hash[:sss] + hash[:philhealth] + hash[:pagibig]
+        hash[:withholding_tax] = withholding_tax(basic_salary)
+        hash[:net_income] = net_income(basic_salary)
 
-          hash
-        end
+        hash
       end
 
       private
