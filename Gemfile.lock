@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    train-tax-calculator (2.0.2)
+    train-tax-calculator (2.1.0)
 
 GEM
   remote: https://rubygems.org/

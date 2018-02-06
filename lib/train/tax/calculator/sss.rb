@@ -57,5 +57,9 @@ module Train::Tax::Calculator
       compute(salary)[:ee]
     end
 
+    def self.compute_total_share(salary)
+      compute_employer_share(salary) + compute_employee_share(salary)
+    end
+
   end
 end
