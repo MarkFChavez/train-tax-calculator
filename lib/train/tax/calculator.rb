@@ -2,6 +2,7 @@ require "train/tax/calculator/version"
 require "train/tax/calculator/philhealth"
 require "train/tax/calculator/pagibig"
 require "train/tax/calculator/sss"
+require "train/tax/calculator/deductions"
 
 module Train
   module Tax
@@ -10,12 +11,12 @@ module Train
       def self.call(basic_salary)
         hash = Hash.new
 
-        hash[:sss] = for_sss_es(basic_salary)
-        hash[:philhealth] = for_philhealth(basic_salary)
-        hash[:pagibig] = for_pagibig(basic_salary)
-        hash[:total_deductions] = hash[:sss] + hash[:philhealth] + hash[:pagibig]
-        hash[:withholding_tax] = withholding_tax(basic_salary)
-        hash[:net_income] = basic_salary - hash[:withholding_tax]
+        hash[:sss]              = Sss.compute_employee_share(basic_salary)
+        hash[:pagibig]          = Pagibig.compute(basic_salary)
+        hash[:philhealth]       = Philhealth.compute(basic_salary)
+        hash[:total_deductions] = Deductions.get(basic_salary)
+        hash[:withholding_tax]  = withholding_tax(hash[:total_deductions], basic_salary)
+        hash[:net_income]       = basic_salary - hash[:withholding_tax]
 
         hash
       end
@@ -30,10 +31,8 @@ module Train
 
       class << self
 
-        def withholding_tax(basic_salary)
-          deductions = for_philhealth(basic_salary) + for_pagibig(basic_salary) + for_sss_es(basic_salary)
+        def withholding_tax(deductions, basic_salary)
           taxable_income = basic_salary - deductions
-
           compute_withholding_for(taxable_income).round(2)
         end
 
@@ -65,27 +64,7 @@ module Train
           end
         end
 
-        def for_philhealth(basic_salary)
-          Philhealth.compute(basic_salary)
-        end
-
-        def for_pagibig(basic_salary)
-          Pagibig.compute(basic_salary)
-        end
-
-        def for_sss(basic_salary)
-          Sss.compute(basic_salary)
-        end
-
-        def for_sss_es(basic_salary)
-          Sss.compute_employee_share(basic_salary)
-        end
-
-        def for_sss_er(basic_salary)
-          Sss.compute_employer_share(basic_salary)
-        end
       end
-
     end
   end
 end
