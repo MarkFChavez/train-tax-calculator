@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["markchav3z@gmail.com"]
 
   spec.summary       = %q{TRAIN Tax Calculator for PH 2018}
-  spec.description   = %q{Computes withholding tax}
+  spec.description   = %q{Computes withholding tax and net income}
   spec.homepage      = "https://markjoelchavez.com"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
