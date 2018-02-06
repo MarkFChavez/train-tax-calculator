@@ -30,6 +30,16 @@ If using IRB, require the library first.
 require 'train/tax/calculator'
 ```
 
+Get Withholding Tax
+```ruby
+Train::Tax::Calculator.withholding_tax(15_000)
+```
+
+Get Net Income
+```ruby
+Train::Tax::Calculator.net_income(15_000)
+```
+
 Get SSS contribution
 ```ruby
 sss = Train::Tax::Calculator.for_sss(15_000) # where 15_000 is the basic salary

@@ -6,38 +6,37 @@ RSpec.describe Train::Tax::Calculator do
 
   let!(:basic_salary) { 15_000 }
 
-  describe ".for_philhealth" do
-    it "calls compute" do
-      expect(PHILHEALTH).to receive(:compute).with(basic_salary)
-      subject.for_philhealth(basic_salary)
+  describe ".withholding_tax" do
+    context "20,833 and below" do
+      it "has NO tax" do
+        expect(subject.withholding_tax(20_000.00)).to eq 0.00
+        expect(subject.withholding_tax(15_000.00)).to eq 0.00
+        expect(subject.withholding_tax(5_000.00)).to eq 0.00
+      end
     end
-  end
 
-  describe ".for_pagibig" do
-    it "calls compute" do
-      expect(PAGIBIG).to receive(:compute).with(basic_salary)
-      subject.for_pagibig(basic_salary)
+    context "a base salary of 30,000" do
+      it "has a withholding tax of 1,614.64" do
+        expect(subject.withholding_tax(30_000.00)).to eq 1_614.64
+      end
     end
-  end
 
-  describe ".for_sss" do
-    it "calls compute" do
-      expect(SSS).to receive(:compute).with(basic_salary)
-      subject.for_sss(basic_salary)
+    context "a base salary of 50,000" do
+      it "has a withholding tax of 6,358.92" do
+        expect(subject.withholding_tax(50_000.00)).to eq 6_358.92
+      end
     end
-  end
 
-  describe ".for_sss_es" do
-    it "calls compute_employee_share" do
-      expect(SSS).to receive(:compute_employee_share).with(basic_salary)
-      subject.for_sss_es(basic_salary)
+    context "a base salary of 100,000" do
+      it "has a withholding tax of 20_463.84" do
+        expect(subject.withholding_tax(100_000.00)).to eq 20_463.84
+      end
     end
-  end
 
-  describe ".for_sss_es" do
-    it "calls compute_employer_share" do
-      expect(SSS).to receive(:compute_employer_share).with(basic_salary)
-      subject.for_sss_er(basic_salary)
+    context "a base salary of 800,000" do
+      it "has a withholding tax of 247_068.92" do
+        expect(subject.withholding_tax(800_000.00)).to eq 247_068.92
+      end
     end
   end
 
