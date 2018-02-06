@@ -7,24 +7,27 @@ module Train
   module Tax
     module Calculator
 
-      def self.for_philhealth(salary_base)
-        Philhealth.compute(salary_base)
+      def self.withholding_tax(basic_salary)
       end
 
-      def self.for_pagibig(salary_base)
-        Pagibig.compute(salary_base)
+      def self.for_philhealth(basic_salary)
+        Philhealth.compute(basic_salary)
       end
 
-      def self.for_sss(salary_base)
-        Sss.compute(salary_base)
+      def self.for_pagibig(basic_salary)
+        Pagibig.compute(basic_salary)
       end
 
-      def self.for_sss_es(salary_base)
-        Sss.compute_employee_share(salary_base)
+      def self.for_sss(basic_salary)
+        Sss.compute(basic_salary)
       end
 
-      def self.for_sss_er(salary_base)
-        Sss.compute_employer_share(salary_base)
+      def self.for_sss_es(basic_salary)
+        Sss.compute_employee_share(basic_salary)
+      end
+
+      def self.for_sss_er(basic_salary)
+        Sss.compute_employer_share(basic_salary)
       end
 
     end
