@@ -6,8 +6,8 @@ require "train/tax/calculator/version"
 Gem::Specification.new do |spec|
   spec.name          = "train-tax-calculator"
   spec.version       = Train::Tax::Calculator::VERSION
-  spec.authors       = ["Mark Chavez"]
-  spec.email         = ["markchav3z@gmail.com"]
+  spec.authors       = ["Mark Chavez", "Christopher Celestial", "Beverly Monungolh", "Jean Marie Catibog"]
+  spec.email         = ["markchav3z@gmail.com", "celestialchristopher@gmail.com", "beverlyamonungolh@gmail.com", "jeancatibog@gmail.com"]
 
   spec.summary       = %q{TRAIN Tax Calculator for PH 2018}
   spec.description   = %q{Computes withholding tax and net income}
