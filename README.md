@@ -28,9 +28,6 @@ If using IRB, require the library first.
 
 ```ruby
 require 'train/tax/calculator'
-```
-
-```Get Tax Details
 Train::Tax::Calculator.(15_000) # returns a hash with basic tax information
 ```
 
