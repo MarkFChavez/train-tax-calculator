@@ -1,4 +1,4 @@
-# Train::Tax::Calculator
+# TRAIN Tax Calculator for PH 2018
 
 ## Installation
 
