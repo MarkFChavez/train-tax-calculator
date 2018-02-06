@@ -30,35 +30,8 @@ If using IRB, require the library first.
 require 'train/tax/calculator'
 ```
 
-Get Withholding Tax
-```ruby
-Train::Tax::Calculator.withholding_tax(15_000)
-```
-
-Get Net Income
-```ruby
-Train::Tax::Calculator.net_income(15_000)
-```
-
-Get SSS contribution
-```ruby
-sss = Train::Tax::Calculator.for_sss(15_000) # where 15_000 is the basic salary
-
-# employee share
-sss[:es]
-
-# employer share
-sss[:er]
-```
-
-Get Pagibig contribution
-```ruby
-Train::Tax::Calculator.for_pagibig(15_000) # where 15_000 is the basic salary
-```
-
-Get Philhealth contribution
-```ruby
-Train::Tax::Calculator.for_philhealth(15_000) # where 15_000 is the basic salary
+```Get Tax Details
+Train::Tax::Calculator.(15_000) # returns a hash with basic tax information
 ```
 
 ## Development
