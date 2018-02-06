@@ -15,7 +15,7 @@ module Train
         hash[:pagibig] = for_pagibig(basic_salary)
         hash[:total_deductions] = hash[:sss] + hash[:philhealth] + hash[:pagibig]
         hash[:withholding_tax] = withholding_tax(basic_salary)
-        hash[:net_income] = net_income(basic_salary)
+        hash[:net_income] = basic_salary - hash[:withholding_tax]
 
         hash
       end
@@ -37,10 +37,6 @@ module Train
           compute_withholding_for(taxable_income).round(2)
         end
 
-        def net_income(basic_salary)
-          basic_salary - withholding_tax(basic_salary)
-        end
-        
         def compute_withholding_for(income)
           if income >= HIGHEST_BRACKET
 
