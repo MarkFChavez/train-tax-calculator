@@ -44,26 +44,32 @@ module Train
 
       private
 
+      HIGHEST_BRACKET = 666_667.00
+      HIGHER_BRACKET  = 166_667.00
+      HIGH_BRACKET    = 66_667.00
+      LOW_BRACKET     = 33_333.00
+      LOWEST_BRACKET  = 20_833.00
+
       def self.compute_withholding_for(income)
-        if income >= 666_667.00
+        if income >= HIGHEST_BRACKET
 
-          200_833.33 + ((income - 666_667.00) * 0.35)
+          200_833.33 + ((income - HIGHEST_BRACKET) * 0.35)
 
-        elsif income >= 166_667.00
+        elsif income >= HIGHER_BRACKET
 
-          40_833.33 + ((income - 166_667.00) * 0.32)
+          40_833.33 + ((income - HIGHER_BRACKET) * 0.32)
 
-        elsif income >= 66_667.00
+        elsif income >= HIGH_BRACKET
 
-          10_833.33 + ((income - 66_667.00) * 0.30)
+          10_833.33 + ((income - HIGH_BRACKET) * 0.30)
 
-        elsif income >= 33_333.00
+        elsif income >= LOW_BRACKET
 
-          2_500.00 + ((income - 33_333.00) * 0.25)
+          2_500.00 + ((income - LOW_BRACKET) * 0.25)
 
-        elsif income >= 20_833.00
+        elsif income >= LOWEST_BRACKET
 
-          0.00 + ((income - 20_833.00) * 0.20)
+          0.00 + ((income - LOWEST_BRACKET) * 0.20)
 
         else
 

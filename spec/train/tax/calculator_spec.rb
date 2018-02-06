@@ -1,11 +1,5 @@
 RSpec.describe Train::Tax::Calculator do
 
-  PHILHEALTH = Train::Tax::Calculator::Philhealth
-  PAGIBIG = Train::Tax::Calculator::Pagibig
-  SSS = Train::Tax::Calculator::Sss
-
-  let!(:basic_salary) { 15_000 }
-
   describe ".withholding_tax" do
     context "20,833 and below" do
       it "has NO tax" do
@@ -38,6 +32,10 @@ RSpec.describe Train::Tax::Calculator do
         expect(subject.withholding_tax(800_000.00)).to eq 247_068.92
       end
     end
+  end
+
+  describe ".net_income" do
+    # PENDING...
   end
 
 end
