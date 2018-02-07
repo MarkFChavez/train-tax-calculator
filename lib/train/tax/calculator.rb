@@ -23,12 +23,6 @@ module Train
 
       private
 
-      HIGHEST_BRACKET = 666_667.00
-      HIGHER_BRACKET  = 166_667.00
-      HIGH_BRACKET    = 66_667.00
-      LOW_BRACKET     = 33_333.00
-      LOWEST_BRACKET  = 20_833.00
-
       # TODO: Move this data somewhere
       TRAIN_TAX_TABLE = [
         { lowest:       0.00, highest:  20_833.00, base:       0.00, excess: 0.00 },
