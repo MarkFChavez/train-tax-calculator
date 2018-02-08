@@ -17,7 +17,7 @@ module Train
         hash[:philhealth]       = Philhealth.compute(basic_salary)
         hash[:total_deductions] = Deductions.get(basic_salary)
         hash[:withholding_tax]  = WithholdingTax.compute(basic_salary)
-        hash[:net_income]       = basic_salary - hash[:withholding_tax]
+        hash[:net_income]       = (basic_salary - hash[:withholding_tax]).round(2)
 
         hash
       end
