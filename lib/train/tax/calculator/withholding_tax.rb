@@ -13,21 +13,32 @@ module Train::Tax::Calculator
     ]
 
     def self.compute(basic_salary)
-      taxable_income = basic_salary - Deductions.get(basic_salary)
-
-      if basic_salary > 90_000
-        monthly_taxable = ((basic_salary - 90_000) / 12.00)
-        taxable_income  = taxable_income + monthly_taxable
-      end
-
-      tax_bracket = LOOKUP_TABLE.select do |bracket|
-        taxable_income >= bracket[:lowest] &&
-        taxable_income < bracket[:highest]
-      end.first
-
+      taxable_income = compute_taxable_income_for(basic_salary)
+      tax_bracket = get_tax_bracket_for(taxable_income)
       withholding_tax = ((taxable_income - tax_bracket[:lowest]) * tax_bracket[:excess]) + tax_bracket[:base]
+
       withholding_tax.round(2)
     end
+
+    private
+
+      def self.compute_taxable_income_for(basic_salary)
+        initial_net = basic_salary - Deductions.get(basic_salary)
+
+        if basic_salary > 90_000
+          additional_tax = ((basic_salary - 90_000) / 12.00)
+          return initial_net + additional_tax
+        end
+
+        initial_net
+      end
+
+      def self.get_tax_bracket_for(taxable_income)
+        LOOKUP_TABLE.select do |bracket|
+          taxable_income >= bracket[:lowest] &&
+          taxable_income < bracket[:highest]
+        end.first
+      end
 
   end
 end
