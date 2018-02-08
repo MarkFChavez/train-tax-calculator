@@ -36,22 +36,22 @@ RSpec.describe Train::Tax::Calculator do
     end
 
     context "a base salary of 100,000" do
-      it "has a withholding tax of 20_463.84" do
-        expect(subject.(100_000.00)[:withholding_tax]).to eq 20_463.84
+      it "has a withholding tax of 20,713.84" do
+        expect(subject.(100_000.00)[:withholding_tax]).to eq 20_713.84
       end
 
       it "has a net income of (basic salary - withholding tax)" do
-        expect(subject.(100_000.00)[:net_income]).to eq (100_000 - 20_463.84)
+        expect(subject.(100_000.00)[:net_income]).to eq (100_000 - 20_713.84)
       end
     end
 
     context "a base salary of 800,000" do
-      it "has a withholding tax of 247_068.92" do
-        expect(subject.(800_000.00)[:withholding_tax]).to eq 247_068.92
+      it "has a withholding tax of 267,777.26" do
+        expect(subject.(800_000.00)[:withholding_tax]).to eq 267_777.26
       end
 
       it "has a net income of (basic salary - withholding tax)" do
-        expect(subject.(800_000.00)[:net_income]).to eq (800_000 - 247_068.92)
+        expect(subject.(800_000.00)[:net_income]).to eq (800_000 - 267_777.26)
       end
     end
   end
