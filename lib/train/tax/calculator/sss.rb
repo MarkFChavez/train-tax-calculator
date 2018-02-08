@@ -1,4 +1,3 @@
-# https://philpad.com/new-sss-contribution-table/
 module Train::Tax::Calculator
   module Sss
 

@@ -1,4 +1,3 @@
-# README: http://news.abs-cbn.com/pinoytaxreformcalculator
 module Train::Tax::Calculator
   module Philhealth
 

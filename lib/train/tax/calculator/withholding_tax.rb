@@ -1,5 +1,3 @@
-require 'pry'
-
 module Train::Tax::Calculator
   module WithholdingTax
 
