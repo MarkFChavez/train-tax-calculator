@@ -10,6 +10,8 @@ module Train
     module Calculator
 
       def self.call(basic_salary)
+        return 0.00 if basic_salary <= 0
+
         hash = Hash.new
 
         hash[:sss]              = Sss.compute_employee_share(basic_salary)
