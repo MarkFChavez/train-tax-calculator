@@ -3,15 +3,15 @@ module Train
     module Calculator
       class Deductions
 
-        def self.get(basic_salary)
-          new(basic_salary).get
+        def self.compute(basic_salary)
+          new(basic_salary).compute
         end
 
         def initialize(basic_salary)
           @basic_salary = basic_salary
         end
 
-        def get
+        def compute
           sss + pagibig + philhealth
         end
 
