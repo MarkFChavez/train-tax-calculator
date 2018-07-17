@@ -21,7 +21,7 @@ module Train::Tax::Calculator
     private
 
       def self.compute_taxable_income_for(basic_salary)
-        initial_net = basic_salary - Deductions.compute(basic_salary)
+        initial_net = basic_salary - Deductions.(basic_salary)
 
         if basic_salary > 90_000
           additional_tax = ((basic_salary - 90_000) / 12.00)

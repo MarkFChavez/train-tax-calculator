@@ -17,7 +17,7 @@ module Train
         hash[:sss]              = Sss.(basic_salary)
         hash[:pagibig]          = Pagibig.(basic_salary)
         hash[:philhealth]       = Philhealth.(basic_salary)
-        hash[:total_deductions] = Deductions.compute(basic_salary)
+        hash[:total_deductions] = Deductions.(basic_salary)
         hash[:withholding_tax]  = WithholdingTax.compute(basic_salary)
         hash[:net_income]       = (basic_salary - hash[:withholding_tax]).round(2)
 
