@@ -26,7 +26,7 @@ module Train
         end
 
         def philhealth
-          Philhealth.compute(@basic_salary)
+          Philhealth.(@basic_salary)[:employee_share]
         end
 
       end
