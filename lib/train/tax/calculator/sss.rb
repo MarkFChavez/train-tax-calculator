@@ -35,6 +35,28 @@ module Train::Tax::Calculator
       1_000.00  => { er: 83.70, ee: 36.30 },
     }
 
+    def self.call(salary)
+      {
+        employee_share: employee_share(salary),
+        employer_share: employer_share(salary),
+        total_share: total_share(salary),
+      }
+    end
+
+    private
+
+    def self.employer_share(salary)
+      compute(salary)[:er]
+    end
+
+    def self.employee_share(salary)
+      compute(salary)[:ee]
+    end
+
+    def self.total_share(salary)
+      employer_share(salary) + employee_share(salary)
+    end
+
     def self.compute(salary)
       result = 0.00
 
@@ -46,18 +68,6 @@ module Train::Tax::Calculator
       end
 
       result
-    end
-
-    def self.compute_employer_share(salary)
-      compute(salary)[:er]
-    end
-
-    def self.compute_employee_share(salary)
-      compute(salary)[:ee]
-    end
-
-    def self.compute_total_share(salary)
-      compute_employer_share(salary) + compute_employee_share(salary)
     end
 
   end

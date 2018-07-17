@@ -1,45 +1,24 @@
 RSpec.describe Train::Tax::Calculator do
 
-  def withholding_tax(amount)
-    Train::Tax::Calculator::WithholdingTax.compute(amount)
-  end
-
   describe ".call" do
-    context "20,833 and below" do
-      it "has a net income = basic salary" do
-        expect(subject.(20_000.00)[:net_income]).to eq 20_000.00
-        expect(subject.(15_000.00)[:net_income]).to eq 15_000.00
-        expect(subject.(5_000.00)[:net_income]).to eq 5_000.00
+    context "salary is a negative number" do
+      it "returns 0.00" do
+        result = described_class.(-500)
+        expect(result).to eq 0.00
       end
     end
 
-    context "a base salary of 30,000" do
-      it "has a net income of (basic salary - withholding tax)" do
-        salary = 30_000
-        expect(subject.(salary)[:net_income]).to eq (salary - withholding_tax(salary))
-      end
-    end
+    context "with valid salary amount given" do
+      it "returns the correct response" do
+        result = described_class.(20_000)
 
-    context "a base salary of 50,000" do
-      it "has a net income of (basic salary - withholding tax)" do
-        salary = 50_000
-        expect(subject.(salary)[:net_income]).to eq (salary - withholding_tax(salary))
-      end
-    end
-
-    context "a base salary of 100,000" do
-      it "has a net income of (basic salary - withholding tax)" do
-        salary = 100_000
-        expect(subject.(salary)[:net_income]).to eq (salary - withholding_tax(salary))
-      end
-    end
-
-    context "a base salary of 800,000" do
-      it "has a net income of (basic salary - withholding tax)" do
-        salary = 800_000
-        expect(subject.(salary)[:net_income]).to eq (salary - withholding_tax(salary))
+        expect(result).to have_key(:sss)
+        expect(result).to have_key(:pagibig)
+        expect(result).to have_key(:philhealth)
+        expect(result).to have_key(:total_deductions)
+        expect(result).to have_key(:withholding_tax)
+        expect(result).to have_key(:net_income)
       end
     end
   end
-
 end
