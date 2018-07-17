@@ -5,7 +5,7 @@
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'train-tax-calculator'
+gem 'train-tax-calculator', '~> 3.0'
 ```
 
 And then execute:
