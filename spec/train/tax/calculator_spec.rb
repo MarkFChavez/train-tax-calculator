@@ -1,7 +1,7 @@
 RSpec.describe Train::Tax::Calculator do
 
   def withholding_tax(amount)
-    Train::Tax::Calculator::WithholdingTax.compute(amount)
+    Train::Tax::Calculator::WithholdingTax.(amount)
   end
 
   describe ".call" do
