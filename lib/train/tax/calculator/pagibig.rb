@@ -1,8 +1,12 @@
 module Train::Tax::Calculator
   module Pagibig
 
-    def self.compute(salary)
-      100.00
+    def self.call(salary)
+      {
+        employee_share: 100.00,
+        employer_share: 100.00,
+        total_share:    200.00,
+      }
     end
 
   end

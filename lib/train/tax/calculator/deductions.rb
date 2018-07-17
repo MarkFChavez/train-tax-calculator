@@ -22,7 +22,7 @@ module Train
         end
 
         def pagibig
-          Pagibig.compute(@basic_salary)
+          Pagibig.(@basic_salary)[:employee_share]
         end
 
         def philhealth
