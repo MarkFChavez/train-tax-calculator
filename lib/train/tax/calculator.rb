@@ -14,7 +14,7 @@ module Train
 
         hash = Hash.new
 
-        hash[:sss]              = Sss.compute_employee_share(basic_salary)
+        hash[:sss]              = Sss.(basic_salary)
         hash[:pagibig]          = Pagibig.compute(basic_salary)
         hash[:philhealth]       = Philhealth.compute(basic_salary)
         hash[:total_deductions] = Deductions.compute(basic_salary)

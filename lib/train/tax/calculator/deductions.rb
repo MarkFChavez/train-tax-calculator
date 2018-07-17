@@ -18,7 +18,7 @@ module Train
         private
 
         def sss
-          Sss.compute_employee_share(@basic_salary)
+          Sss.(@basic_salary)[:employee_share]
         end
 
         def pagibig
